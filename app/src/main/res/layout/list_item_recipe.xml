@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="recipe"
+                type="com.unoknowbo.recime.database.recipe.Recipe" />
+        <variable
+                name="clickListener"
+                type="com.unoknowbo.recime.recipes.RecipeListener" />
+    </data>
+
+    <LinearLayout
+            android:id="@+id/list_item_recipe"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_normal"
+            android:onClick="@{() -> clickListener.onClick(recipe)}">
+
+        <TextView
+                android:id="@+id/list_item_recipe_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{recipe.name}"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/font_normal"
+                tools:text="Recipe"/>
+
+        <TextView
+                android:id="@+id/list_item_recipe_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primaryLightColor"
+                android:textSize="@dimen/font_small"
+                app:formattedRecipeTimes="@{recipe}"
+                tools:text="Prep: 3 hrs 30 mins, Cook: 1 hr"/>
+    </LinearLayout>
+
+</layout>
