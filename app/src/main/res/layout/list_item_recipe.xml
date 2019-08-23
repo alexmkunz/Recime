@@ -15,29 +15,43 @@
 
     <LinearLayout
             android:id="@+id/list_item_recipe"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:onClick="@{() -> clickListener.onClick(recipe)}">
 
         <TextView
                 android:id="@+id/list_item_recipe_name"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="10"
                 android:text="@{recipe.name}"
                 android:textColor="@color/primaryColor"
                 android:textSize="@dimen/font_normal"
                 tools:text="Recipe"/>
 
+        <ImageView
+                android:id="@+id/list_item_recipe_timer_icon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:src="@drawable/ic_timer"/>
+
         <TextView
                 android:id="@+id/list_item_recipe_time"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:maxEms="7"
+                android:minEms="2"
                 android:textColor="@color/primaryLightColor"
                 android:textSize="@dimen/font_small"
-                app:formattedRecipeTimes="@{recipe}"
-                tools:text="Prep: 3 hrs 30 mins, Cook: 1 hr"/>
+                android:textAlignment="center"
+                app:formatTime="@{recipe}"
+                tools:text="12h 30m"/>
     </LinearLayout>
 
 </layout>
