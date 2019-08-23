@@ -24,33 +24,28 @@ The following example demonstrates how these entities work together: the recipe 
 ## Database Tables
 Recime's database consists of three tables: recipes, ingredients, and instructions.
 
-#### Key:
-###### "PK" = Primary key
-###### "FK = x --> y" = Foriegn Key from child column x to parent column y
-
-
 ### Recipes:
 |id: Long|name: String|timeEstimateInMinutes: Int|notes: String|
 |:---:|:---:|:---:|:---:|
 |...|...|...|...|
 
-###### PK = id
+###### Primary Key = id
 
 ### Ingredients:
 |recipeId: Long|description: String|quantity: Int|unitOfMeasurement: String|
 |:---:|:---:|:---:|:---:|
 |...|...|...|...|
 
-###### PK = recipeId, description
-###### FK = recipeId --> id
+###### Primary Key = recipeId, description
+###### Foreign Key = recipeId --> id
 
 ### Instructions:
 |recipeId: Long|description: String|orderOfInstruction: Int|
 |:---:|:---:|:---:|
 |...|...|...|
 
-###### PK = recipeId, orderOfInstruction
-###### FK = recipeId --> id
+###### Primary Key = recipeId, orderOfInstruction
+###### Foreign Key = recipeId --> id
 
 ## TODO
 * Display ingredients, instructions, time, and notes
