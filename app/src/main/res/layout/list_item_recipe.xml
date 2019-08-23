@@ -25,7 +25,7 @@
                 android:id="@+id/list_item_recipe_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="10"
+                android:layout_weight="7"
                 android:text="@{recipe.name}"
                 android:textColor="@color/primaryColor"
                 android:textSize="@dimen/font_normal"
@@ -37,7 +37,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/spacing_small"
-                android:layout_marginEnd="@dimen/spacing_small"
                 android:src="@drawable/ic_timer"/>
 
         <TextView
@@ -45,8 +44,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:maxEms="7"
-                android:minEms="2"
                 android:textColor="@color/primaryLightColor"
                 android:textSize="@dimen/font_small"
                 android:textAlignment="center"
