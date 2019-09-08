@@ -10,11 +10,18 @@
                 type="com.unoknowbo.recime.recipes.RecipesViewModel" />
     </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recipes_recycler_view"
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_item_recipe"
-            tools:itemCount="3"/>
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recipes_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/list_item_recipe"
+                tools:itemCount="3"/>
+
+    </LinearLayout>
 </layout>
