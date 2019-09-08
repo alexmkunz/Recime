@@ -1,0 +1,17 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<resources>
+  <color name="primaryColor">#b3b0ff</color>
+  <color name="primaryLightColor">#e6e2ff</color>
+  <color name="primaryDarkColor">#8181cc</color>
+  <color name="secondaryColor">#ffab91</color>
+  <color name="secondaryLightColor">#ffddc1</color>
+  <color name="secondaryDarkColor">#c97b63</color>
+  <color name="onPrimary">#000000</color>
+  <color name="onSecondary">#000000</color>
+  <color name="actionBar">#383838</color>
+  <color name="background">#121212</color>
+  <color name="surface">#252525</color>
+  <color name="onSurfaceHighEmphasis">#ffffff</color>
+  <color name="onSurfaceMediumEmphasis">#e0e0e0</color>
+  <color name="onSurfaceLowEmphasis">#a0a0a0</color>
+</resources>
