@@ -50,3 +50,6 @@ Recime's database consists of three tables: recipes, ingredients, and instructio
 ## TODO
 * Display ingredients, instructions, time, and notes
 * User edit/creation
+
+## References
+My app architecture and room database implementation were inspired by Udacity's [Developing Android Apps with Kotlin course](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012).
