@@ -17,6 +17,9 @@
             android:id="@+id/list_item_recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacer"
+            android:background="@drawable/shape_rounded_surface"
+            android:foreground="?android:selectableItemBackground"
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:onClick="@{() -> clickListener.onClick(recipe)}">
@@ -27,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:text="@{recipe.name}"
-                android:textColor="@color/primaryColor"
+                android:textColor="@color/onSurfaceMediumEmphasis"
                 android:textSize="@dimen/font_normal"
                 tools:text="Recipe"/>
 
@@ -44,7 +47,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:textColor="@color/primaryLightColor"
+                android:textColor="@color/primaryColor"
                 android:textSize="@dimen/font_small"
                 android:textAlignment="center"
                 app:formatTime="@{recipe}"
