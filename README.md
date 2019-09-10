@@ -3,7 +3,7 @@ A simple Android app designed to create and store recipes. It is written in Kotl
 
 ## The Landing Page
 
-![Recime Landing Page](recimeLandingPage.png)
+<img src="screenshots/recimeLandingPageDay.png" alt="drawing" width="49%"/> <img src="screenshots/recimeLandingPageNight.png" alt="drawing" width="49%"/>
 
 ## Architecture
 This app takes an approach similiar to the Model-View-Viewmodel architectural pattern to facilitate seperation of concerns. The main components are the **UI**, the **Viewmodel**, and the **database abstraction layer**.
@@ -50,4 +50,3 @@ Recime's database consists of three tables: recipes, ingredients, and instructio
 ## TODO
 * Display ingredients, instructions, time, and notes
 * User edit/creation
-* Dark Mode
