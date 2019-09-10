@@ -10,12 +10,19 @@
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/onSecondary</item>
         <item name="actionBarTheme">@style/AppTheme.DayNightActionBar</item>
+        <item name="android:windowAnimationStyle">@style/AppTheme.WindowAnimationTransition</item>
     </style>
 
     <!-- Custom theme to change the background color of the action bar in night mode. -->
     <style name="AppTheme.DayNightActionBar" parent="AppTheme">
         <item name="android:background">@color/actionBar</item>
         <item name="android:textColorPrimary">#ffffff</item>
+    </style>
+
+    <!-- Fade animation for activities. These animations are used when day/night mode changes. -->
+    <style name="AppTheme.WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
 </resources>
