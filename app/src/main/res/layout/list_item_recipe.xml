@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacer"
-            android:background="@drawable/shape_rounded_surface"
+            android:background="@drawable/shape_bottom_border"
             android:foreground="?android:selectableItemBackground"
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:text="@{recipe.name}"
-                android:textColor="@color/onSurfaceMediumEmphasis"
+                android:textColor="@color/onBackground"
                 android:textSize="@dimen/font_normal"
                 tools:text="Recipe"/>
 
