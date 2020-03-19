@@ -8,7 +8,7 @@ import com.unoknowbo.recime.database.recipe.Recipe
 fun TextView.formatTime(recipe: Recipe?) {
     recipe?.let {
         text = formatTime(
-            recipe.timeEstimateInMinutes,
+            (recipe.cookTimeEstimateInMinutes + recipe.prepTimeEstimateInMinutes),
             context.resources
         )
     }
