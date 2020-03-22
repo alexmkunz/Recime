@@ -8,7 +8,7 @@
 
     <fragment
             android:id="@+id/recipesFragment"
-            android:name="com.unoknowbo.recime.recipes.RecipesFragment"
+            android:name="com.unoknowbo.recime.ui.recipes.RecipesFragment"
             android:label="fragment_recipes"
             tools:layout="@layout/fragment_recipes"/>
 </navigation>

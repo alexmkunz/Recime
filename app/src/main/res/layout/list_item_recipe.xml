@@ -10,7 +10,7 @@
                 type="com.unoknowbo.recime.database.recipe.Recipe" />
         <variable
                 name="clickListener"
-                type="com.unoknowbo.recime.recipes.RecipeListener" />
+                type="com.unoknowbo.recime.ui.recipes.RecipeListener" />
     </data>
 
     <LinearLayout

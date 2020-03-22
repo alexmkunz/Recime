@@ -7,7 +7,7 @@
     <data>
         <variable
                 name="recipesViewModel"
-                type="com.unoknowbo.recime.recipes.RecipesViewModel" />
+                type="com.unoknowbo.recime.ui.recipes.RecipesViewModel" />
     </data>
 
     <LinearLayout
