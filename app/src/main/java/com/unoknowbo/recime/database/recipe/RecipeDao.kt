@@ -17,6 +17,9 @@ interface RecipeDao {
     @Update
     fun update(recipe: Recipe)
 
+    @Query("SELECT * FROM recipes WHERE id = :id")
+    fun getRecipe(id: Long): LiveData<Recipe>
+
     @Query("SELECT * FROM recipes ORDER BY id ASC")
     fun getRecipes(): LiveData<List<Recipe>>
 

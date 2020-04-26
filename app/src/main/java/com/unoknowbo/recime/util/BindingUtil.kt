@@ -13,3 +13,23 @@ fun TextView.formatTime(recipe: Recipe?) {
         )
     }
 }
+
+@BindingAdapter("formatPrepTime")
+fun TextView.formatPrepTime(recipe: Recipe?) {
+    recipe?.let {
+        text = formatTime(
+            (recipe.prepTimeEstimateInMinutes),
+            context.resources
+        )
+    }
+}
+
+@BindingAdapter("formatCookTime")
+fun TextView.formatCookTime(recipe: Recipe?) {
+    recipe?.let {
+        text = formatTime(
+            (recipe.cookTimeEstimateInMinutes),
+            context.resources
+        )
+    }
+}

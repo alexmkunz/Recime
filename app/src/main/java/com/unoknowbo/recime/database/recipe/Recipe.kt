@@ -9,6 +9,8 @@ data class Recipe(
     var cookTimeEstimateInMinutes: Int,
     var prepTimeEstimateInMinutes: Int,
     var description: String,
+    var servings: Int,
+    var calories: Int,
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0 // Optional parameter because it is auto-generated.
 )

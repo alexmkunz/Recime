@@ -17,7 +17,6 @@
             android:id="@+id/list_item_recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacer"
             android:background="@drawable/shape_bottom_border"
             android:foreground="?android:selectableItemBackground"
             android:gravity="center"
@@ -52,6 +51,7 @@
                 android:textAlignment="center"
                 app:formatTime="@{recipe}"
                 tools:text="12h 30m"/>
+
     </LinearLayout>
 
 </layout>

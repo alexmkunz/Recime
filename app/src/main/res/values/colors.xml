@@ -11,6 +11,7 @@
   <color name="actionBar">#3f51b5</color>
   <color name="background">#f2f2f2</color>
   <color name="onBackground">#212121</color>
+  <color name="onBackgroundLowEmphasis">#666666</color>
   <color name="surface">#dbdbdb</color>
   <color name="onSurfaceHighEmphasis">#000000</color>
   <color name="onSurfaceMediumEmphasis">#212121</color>

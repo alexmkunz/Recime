@@ -2,4 +2,16 @@
     <string name="app_name">Recime</string>
     <string name="hours_abbreviation">h</string>
     <string name="minutes_abbreviation">m</string>
+    <string name="information">Information</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
+    <string name="name"><u>Name:</u></string>
+    <string name="specifics"><u>Specifics:</u></string>
+    <string name="description"><u>Description:</u></string>
+    <string name="prep_time">Prep Time:</string>
+    <string name="cook_time">Cook Time:</string>
+    <string name="servings">Servings:</string>
+    <string name="calories">Calories:</string>
+    <string name="recipe_information_description_hint">Click the edit icon (pencil) in the top right corner to add a description and/or edit any other recipe detail.</string>
+    <string name="tbd">TBD</string>
 </resources>
