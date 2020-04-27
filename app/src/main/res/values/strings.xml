@@ -5,13 +5,13 @@
     <string name="information">Information</string>
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
-    <string name="name_underlined"><u>Name:</u></string>
-    <string name="specifics_underlined"><u>Specifics:</u></string>
-    <string name="description_underlined"><u>Description:</u></string>
-    <string name="prep_time">Prep Time:</string>
-    <string name="cook_time">Cook Time:</string>
-    <string name="servings">Servings:</string>
-    <string name="calories">Calories:</string>
+    <string name="name_colon_underlined"><u>Name:</u></string>
+    <string name="specifics_colon_underlined"><u>Specifics:</u></string>
+    <string name="description_colon_underlined"><u>Description:</u></string>
+    <string name="prep_time_colon">Prep Time:</string>
+    <string name="cook_time_colon">Cook Time:</string>
+    <string name="servings_colon">Servings:</string>
+    <string name="calories_colon">Calories:</string>
     <string name="recipe_information_description_hint">Click the edit icon (pencil) in the top right corner to add a description and/or edit any other recipe detail.</string>
     <string name="tbd">TBD</string>
 </resources>
