@@ -5,9 +5,9 @@
     <string name="information">Information</string>
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
-    <string name="name"><u>Name:</u></string>
-    <string name="specifics"><u>Specifics:</u></string>
-    <string name="description"><u>Description:</u></string>
+    <string name="name_underlined"><u>Name:</u></string>
+    <string name="specifics_underlined"><u>Specifics:</u></string>
+    <string name="description_underlined"><u>Description:</u></string>
     <string name="prep_time">Prep Time:</string>
     <string name="cook_time">Cook Time:</string>
     <string name="servings">Servings:</string>
