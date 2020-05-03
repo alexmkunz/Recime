@@ -36,6 +36,19 @@ fun TextView.formatCookTime(recipe: Recipe?) {
     }
 }
 
+@BindingAdapter("formatServings")
+fun TextView.formatServings(recipe: Recipe?) {
+    recipe?.let {
+        text = recipe.servings.toString()
+    }
+}
+
+@BindingAdapter("formatCalories")
+fun TextView.formatCalories(recipe: Recipe?) {
+    recipe?.let {
+        text = recipe.calories.toString()
+    }
+}
 
 private fun formatTime(minutes: Int, res: Resources): String {
     var minutesString = ""
