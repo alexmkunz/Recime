@@ -23,7 +23,7 @@
                 android:paddingTop="@dimen/spacing_normal"
                 android:paddingEnd="0dp"
                 android:paddingBottom="@dimen/spacing_normal"
-                android:text="@{String.valueOf(instruction.orderOfInstruction)}"
+                android:text="@{String.valueOf(instruction.orderOfInstruction + 1)}"
                 android:textColor="@color/onBackground"
                 android:textSize="@dimen/font_normal"
                 app:layout_constrainedWidth="true"
