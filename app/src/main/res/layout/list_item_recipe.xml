@@ -5,6 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="recipe"
                 type="com.unoknowbo.recime.database.recipe.Recipe" />
@@ -39,6 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/spacing_small"
+                android:visibility="@{(recipe.cookTimeEstimateInMinutes + recipe.prepTimeEstimateInMinutes > 0 ? View.VISIBLE : View.GONE)}"
                 android:src="@drawable/ic_timer"/>
 
         <TextView
@@ -49,6 +51,7 @@
                 android:textColor="@color/primaryColor"
                 android:textSize="@dimen/font_small"
                 android:textAlignment="center"
+                android:visibility="@{(recipe.cookTimeEstimateInMinutes + recipe.prepTimeEstimateInMinutes > 0 ? View.VISIBLE : View.GONE)}"
                 app:formatTime="@{recipe}"
                 tools:text="12h 30m"/>
 
