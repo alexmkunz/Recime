@@ -3,6 +3,7 @@ package com.unoknowbo.recime.ui.recipe
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.unoknowbo.recime.R
@@ -44,7 +45,9 @@ class RecipeFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.fragment_recipe_edit -> {
-                // TODO, launch create/edit page
+                val args = RecipeFragmentArgs.fromBundle(arguments!!)
+                this.findNavController().navigate(RecipeFragmentDirections
+                    .actionRecipeFragmentToEditRecipeFragment(args.recipeId))
             }
         }
         return super.onOptionsItemSelected(item)

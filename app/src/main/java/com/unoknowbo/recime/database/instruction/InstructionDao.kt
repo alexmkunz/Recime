@@ -22,4 +22,7 @@ interface InstructionDao {
 
     @Query("DELETE FROM instructions WHERE recipeId = :recipeId AND description = :description")
     fun deleteInstruction(recipeId: Long, description: String)
+
+    @Query("DELETE FROM instructions WHERE recipeId = :recipeId")
+    fun deleteInstructions(recipeId: Long)
 }

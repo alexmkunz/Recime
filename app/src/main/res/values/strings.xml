@@ -1,17 +1,41 @@
 <resources>
     <string name="app_name">Recime</string>
+    <string name="hours">Hours</string>
     <string name="hours_abbreviation">h</string>
+    <string name="minutes">Minutes</string>
     <string name="minutes_abbreviation">m</string>
     <string name="information">Information</string>
+    <string name="information_colon_underlined"><u>Information:</u></string>
     <string name="ingredients">Ingredients</string>
+    <string name="ingredients_colon_underlined"><u>Ingredients:</u></string>
     <string name="instructions">Instructions</string>
+    <string name="instructions_colon_underlined"><u>Instructions:</u></string>
+    <string name="name">Name</string>
     <string name="name_colon_underlined"><u>Name:</u></string>
     <string name="specifics_colon_underlined"><u>Specifics:</u></string>
+    <string name="description">Description</string>
     <string name="description_colon_underlined"><u>Description:</u></string>
     <string name="prep_time_colon">Prep Time:</string>
     <string name="cook_time_colon">Cook Time:</string>
+    <string name="servings">Servings</string>
     <string name="servings_colon">Servings:</string>
+    <string name="calories">Calories</string>
     <string name="calories_colon">Calories:</string>
+    <string name="edit_recipe_ingredients_hint">Format: Quantity, Unit, Ingredient *Enter twice*</string>
+    <string name="edit_recipe_instructions_hint">Format: Instruction *Enter twice*</string>
     <string name="recipe_information_description_hint">Click the edit icon (pencil) in the top right corner to add a description and/or edit any other recipe detail.</string>
     <string name="tbd">TBD</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="discard">Discard</string>
+    <string name="discard_changes">Discard Changes</string>
+    <string name="discard_changes_message">Are you sure you want to discard the changes to this recipe?</string>
+    <string name="invalid_input_period_space">Invalid Input.\u0020</string>
+    <string name="invalid_ingredients_input">Invalid Ingredients Input</string>
+    <string name="ingredients_input_example">The input format is \"Quantity, Unit of Measurement, Ingredient\" separated by a blank line. Example:\n\n2, slices, bread\n\n3, T, peanut butter\n\n4 1/2, T, jam</string>
+    <string name="invalid_instructions_input">Invalid Instructions Input</string>
+    <string name="instructions_input_example">Separate each instruction by a blank line. Example:\n\nSpread peanut butter on one slice of bread\n\nSpread jam on the other slice\n\nPress the slices together</string>
+    <string name="ok">Ok</string>
+
+
 </resources>

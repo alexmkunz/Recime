@@ -17,9 +17,12 @@ interface IngredientDao {
     @Update
     fun update(ingredient: Ingredient)
 
-    @Query("SELECT * FROM ingredients WHERE recipeId = :recipeId")
+    @Query("SELECT * FROM ingredients WHERE recipeId = :recipeId ORDER BY orderOfIngredient ASC")
     fun getRecipeIngredients(recipeId: Long): LiveData<List<Ingredient>>
 
     @Query("DELETE FROM ingredients WHERE recipeId = :recipeId AND description = :description")
     fun deleteIngredient(recipeId: Long, description: String)
+
+    @Query("DELETE FROM ingredients WHERE recipeId = :recipeId")
+    fun deleteIngredients(recipeId: Long)
 }

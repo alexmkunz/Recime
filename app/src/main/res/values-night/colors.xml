@@ -16,4 +16,6 @@
   <color name="onSurfaceHighEmphasis">#ffffff</color>
   <color name="onSurfaceMediumEmphasis">#e0e0e0</color>
   <color name="onSurfaceLowEmphasis">#a0a0a0</color>
+  <color name="cancel">#ff4d4d</color>
+  <color name="save">#4dff71</color>
 </resources>
