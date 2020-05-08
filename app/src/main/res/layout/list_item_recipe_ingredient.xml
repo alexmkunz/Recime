@@ -29,6 +29,7 @@
                 app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="@id/recipe_ingredient_bottom_barrier"
                 app:layout_constraintEnd_toStartOf="@id/recipe_ingredient_quantity_vertical_guideline"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="14 3/4" />
