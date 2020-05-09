@@ -129,6 +129,8 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
     }
 
     private fun getCancelAlertDialog(): AlertDialog? {
+        val args = RecipeFragmentArgs.fromBundle(arguments!!)
+        val recipeId = args.recipeId
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
@@ -136,8 +138,14 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
                     navControllerPopBackStack()
                 }
                 setNegativeButton(R.string.cancel, null)
-                setTitle(R.string.discard_changes)
-                setMessage(R.string.discard_changes_message)
+                setTitle(
+                    if (recipeId == (-1).toLong()) R.string.discard_recipe
+                    else R.string.discard_changes
+                )
+                setMessage(
+                    if (recipeId == (-1).toLong()) R.string.discard_recipe_message
+                    else R.string.discard_changes_message
+                )
                 setIcon(R.drawable.ic_discard)
             }
             builder.create()

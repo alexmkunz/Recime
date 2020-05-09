@@ -30,6 +30,8 @@
     <string name="discard">Discard</string>
     <string name="discard_changes">Discard Changes</string>
     <string name="discard_changes_message">Are you sure you want to discard the changes to this recipe?</string>
+    <string name="discard_recipe">Discard Recipe</string>
+    <string name="discard_recipe_message">Are you sure you want to discard this recipe?</string>
     <string name="invalid_input_period_space">Invalid Input.\u0020</string>
     <string name="invalid_ingredients_input">Invalid Ingredients Input</string>
     <string name="ingredients_input_example">The input format is \"Quantity, Unit of Measurement, Ingredient\" separated by a blank line. Example:\n\n2, slices, bread\n\n3, T, peanut butter\n\n4 1/2, T, jam</string>
