@@ -1,13 +1,14 @@
 <resources>
 
-    <!-- Base application theme. colorAccent decides the color of EditText. -->
+    <!-- Base application theme. Secondary colors are just primary colors again because I don't
+         want to use the secondary color as of now. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
         <item name="colorOnPrimary">@color/onPrimary</item>
-        <item name="colorSecondary">@color/secondaryColor</item>
-        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorSecondary">@color/primaryColor</item>
+        <item name="colorSecondaryVariant">@color/primaryDarkColor</item>
         <item name="colorOnSecondary">@color/onSecondary</item>
         <item name="colorAccent">@color/primaryColor</item>
         <item name="actionBarTheme">@style/AppTheme.DayNightActionBar</item>

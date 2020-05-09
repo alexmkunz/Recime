@@ -44,11 +44,21 @@ class RecipesFragment : Fragment() {
         )
         binding.recipesRecyclerView.adapter = adapter
 
+        // Navigate to RecipeFragment
         recipesViewModel.navigateToRecipe.observe(viewLifecycleOwner, Observer {recipeId ->
             recipeId?.let {
                 this.findNavController().navigate(RecipesFragmentDirections
                     .actionRecipesFragmentToRecipeFragment(recipeId))
                 recipesViewModel.onRecipeNavigated()
+            }
+        })
+
+        // Navigate to EditRecipeFragment to create a recipe
+        recipesViewModel.navigateToCreateRecipe.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
+                this.findNavController().navigate(RecipesFragmentDirections
+                    .actionRecipesFragmentToEditRecipeFragment(-1))
+                recipesViewModel.onCreateRecipeNavigated()
             }
         })
 

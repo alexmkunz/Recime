@@ -7,6 +7,7 @@ import com.unoknowbo.recime.database.ingredient.Ingredient
 import com.unoknowbo.recime.database.ingredient.IngredientDao
 import com.unoknowbo.recime.database.instruction.Instruction
 import com.unoknowbo.recime.database.instruction.InstructionDao
+import com.unoknowbo.recime.database.recipe.Recipe
 import com.unoknowbo.recime.database.recipe.RecipeDao
 import kotlinx.coroutines.*
 
@@ -14,7 +15,7 @@ class EditRecipeViewModel (
     private val recipeDao: RecipeDao,
     private val ingredientDao: IngredientDao,
     private val instructionDao: InstructionDao,
-    val recipeId: Long
+    var recipeId: Long
 ) : ViewModel() {
 
     /** Data binding values */
@@ -68,26 +69,34 @@ class EditRecipeViewModel (
     ) {
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                recipeDao.updateName(nameString, recipeId)
-                recipeDao.updatePrepTime(
+                val prepTimeEstimateInMinutes =
                     (if (prepTimeHoursString == "") 0 else prepTimeHoursString.toInt() * 60) +
-                            (if (prepTimeMinutesString == "") 0 else prepTimeMinutesString.toInt()),
-                    recipeId
-                )
-                recipeDao.updateCookTime(
+                            (if (prepTimeMinutesString == "") 0 else prepTimeMinutesString.toInt())
+                val cookTimeEstimateInMinutes =
                     (if (cookTimeHoursString == "") 0 else cookTimeHoursString.toInt() * 60) +
-                            (if (cookTimeMinutesString == "") 0 else cookTimeMinutesString.toInt()),
-                    recipeId
-                )
-                recipeDao.updateServings(
-                    (if (servingsString == "") 0 else servingsString.toInt()),
-                    recipeId
-                )
-                recipeDao.updateCalories(
-                    (if (caloriesString == "") 0 else caloriesString.toInt()),
-                    recipeId
-                )
-                recipeDao.updateDescription(descriptionString, recipeId)
+                            (if (cookTimeMinutesString == "") 0 else cookTimeMinutesString.toInt())
+                val servings = if (servingsString == "") 0 else servingsString.toInt()
+                val calories = if (caloriesString == "") 0 else caloriesString.toInt()
+
+                if (recipeId == (-1).toLong()){
+                    recipeId = recipeDao.insert(
+                        Recipe(
+                            nameString,
+                            cookTimeEstimateInMinutes,
+                            prepTimeEstimateInMinutes,
+                            descriptionString,
+                            servings,
+                            calories
+                        )
+                    )
+                } else {
+                    recipeDao.updateName(nameString, recipeId)
+                    recipeDao.updatePrepTime(prepTimeEstimateInMinutes, recipeId)
+                    recipeDao.updateCookTime(cookTimeEstimateInMinutes, recipeId)
+                    recipeDao.updateServings(servings, recipeId)
+                    recipeDao.updateCalories(calories, recipeId)
+                    recipeDao.updateDescription(descriptionString, recipeId)
+                }
 
                 val ingredients = getIngredientsFromString(ingredientsString)
                 // Remove old ingredients

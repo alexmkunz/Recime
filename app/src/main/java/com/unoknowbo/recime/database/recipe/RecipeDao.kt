@@ -12,7 +12,7 @@ import androidx.room.Update
 @Dao
 interface RecipeDao {
     @Insert
-    fun insert(recipe: Recipe)
+    fun insert(recipe: Recipe): Long // Returns the id of the newly inserted Recipe
 
     @Update
     fun update(recipe: Recipe)

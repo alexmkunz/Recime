@@ -36,6 +36,6 @@
     <string name="invalid_instructions_input">Invalid Instructions Input</string>
     <string name="instructions_input_example">Separate each instruction by a blank line. Example:\n\nSpread peanut butter on one slice of bread\n\nSpread jam on the other slice\n\nPress the slices together</string>
     <string name="ok">Ok</string>
-
-
+    <string name="floating_action_button_prompt">Click on the create button to make a recipe:</string>
+    <string name="create_recipe">Create Recipe</string>
 </resources>
