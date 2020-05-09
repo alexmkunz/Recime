@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+            android:id="@+id/fragment_recipe_delete"
+            android:title="Delete"
+            android:icon="@drawable/ic_delete_white"
+            app:showAsAction="always"/>
+
+    <item
             android:id="@+id/fragment_recipe_edit"
             android:title="Edit"
             android:icon="@drawable/ic_edit"
