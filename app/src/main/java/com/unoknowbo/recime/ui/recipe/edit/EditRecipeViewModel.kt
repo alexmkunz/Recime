@@ -122,7 +122,6 @@ class EditRecipeViewModel (
         val ingredients = mutableListOf<Ingredient>()
         for ((order, entry) in ingredientEntries.withIndex()) {
             val ingredientEntryComponents = entry.split(",").map { s: String -> s.trim() }
-            Log.d("pepe", ingredientEntryComponents.toString())
             ingredients.add(
                 Ingredient(
                     recipeId,
@@ -133,14 +132,12 @@ class EditRecipeViewModel (
                 )
             )
         }
-        Log.d("pepe", ingredients.toString())
         return ingredients
     }
 
     private fun getInstructionsFromString(instructionsString: String): List<Instruction> {
         val instructionEntries = instructionsString
             .split("\n").filterNot {s: String -> s == ""}.map { s: String -> s.trim() }
-        Log.d("pepe", instructionEntries.toString())
         val instructions = mutableListOf<Instruction>()
         for ((order, entry) in instructionEntries.withIndex()) {
             instructions.add(
@@ -151,7 +148,6 @@ class EditRecipeViewModel (
                 )
             )
         }
-        Log.d("pepe", instructions.toString())
         return instructions
     }
 }
