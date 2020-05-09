@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="ingredient"
+                type="com.unoknowbo.recime.database.ingredient.Ingredient" />
+    </data>
+
+    <LinearLayout
+            android:id="@+id/list_item_recipe_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bottom_border">
+
+        <TextView
+                android:id="@+id/list_item_recipe_ingredient_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_normal"
+                android:text="@{ingredient.description}"
+                android:textColor="@color/onBackground"
+                android:textSize="@dimen/font_normal"
+                tools:text="Ingredient this is a test of a long ingredient" />
+
+
+    </LinearLayout>
+
+</layout>

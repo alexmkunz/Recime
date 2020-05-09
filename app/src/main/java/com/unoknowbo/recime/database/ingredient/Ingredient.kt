@@ -6,7 +6,7 @@ import com.unoknowbo.recime.database.recipe.Recipe
 
 @Entity(
     tableName = "ingredients",
-    primaryKeys = ["recipeId", "description"],
+    primaryKeys = ["recipeId", "orderOfIngredient"],
     foreignKeys = [
         ForeignKey(
             entity = Recipe::class,
@@ -19,6 +19,5 @@ import com.unoknowbo.recime.database.recipe.Recipe
 data class Ingredient(
     var recipeId: Long,
     var description: String,
-    var quantity: Int,
-    var unitOfMeasurement: String
+    var orderOfIngredient: Int
 )

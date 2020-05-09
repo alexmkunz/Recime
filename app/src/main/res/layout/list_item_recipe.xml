@@ -5,20 +5,20 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="recipe"
                 type="com.unoknowbo.recime.database.recipe.Recipe" />
         <variable
                 name="clickListener"
-                type="com.unoknowbo.recime.recipes.RecipeListener" />
+                type="com.unoknowbo.recime.ui.recipes.RecipeListener" />
     </data>
 
     <LinearLayout
             android:id="@+id/list_item_recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacer"
-            android:background="@drawable/shape_rounded_surface"
+            android:background="@drawable/shape_bottom_border"
             android:foreground="?android:selectableItemBackground"
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:text="@{recipe.name}"
-                android:textColor="@color/onSurfaceMediumEmphasis"
+                android:textColor="@color/onBackground"
                 android:textSize="@dimen/font_normal"
                 tools:text="Recipe"/>
 
@@ -40,6 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="@dimen/spacing_small"
+                android:visibility="@{(recipe.cookTimeEstimateInMinutes + recipe.prepTimeEstimateInMinutes > 0 ? View.VISIBLE : View.GONE)}"
                 android:src="@drawable/ic_timer"/>
 
         <TextView
@@ -50,8 +51,10 @@
                 android:textColor="@color/primaryColor"
                 android:textSize="@dimen/font_small"
                 android:textAlignment="center"
+                android:visibility="@{(recipe.cookTimeEstimateInMinutes + recipe.prepTimeEstimateInMinutes > 0 ? View.VISIBLE : View.GONE)}"
                 app:formatTime="@{recipe}"
                 tools:text="12h 30m"/>
+
     </LinearLayout>
 
 </layout>

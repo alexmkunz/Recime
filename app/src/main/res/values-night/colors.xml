@@ -9,9 +9,13 @@
   <color name="onPrimary">#000000</color>
   <color name="onSecondary">#000000</color>
   <color name="actionBar">#383838</color>
-  <color name="background">#121212</color>
+  <color name="background">#000000</color>
+  <color name="onBackground">#e0e0e0</color>
+  <color name="onBackgroundLowEmphasis">#a0a0a0</color>
   <color name="surface">#252525</color>
   <color name="onSurfaceHighEmphasis">#ffffff</color>
   <color name="onSurfaceMediumEmphasis">#e0e0e0</color>
   <color name="onSurfaceLowEmphasis">#a0a0a0</color>
+  <color name="cancel">#ff4d4d</color>
+  <color name="save">#4dff71</color>
 </resources>

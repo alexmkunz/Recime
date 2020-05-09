@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="recipeIngredientsViewModel"
+                type="com.unoknowbo.recime.ui.recipe.ingredients.RecipeIngredientsViewModel" />
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recipe_ingredients_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/list_item_recipe_ingredient"
+                tools:itemCount="3"/>
+
+    </LinearLayout>
+
+</layout>

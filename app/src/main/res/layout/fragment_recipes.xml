@@ -5,15 +5,17 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
                 name="recipesViewModel"
-                type="com.unoknowbo.recime.recipes.RecipesViewModel" />
+                type="com.unoknowbo.recime.ui.recipes.RecipesViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/background">
+            android:background="@color/background"
+            android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recipes_recycler_view"
@@ -23,5 +25,19 @@
                 tools:listitem="@layout/list_item_recipe"
                 tools:itemCount="3"/>
 
-    </LinearLayout>
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/recipes_floating_action_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                android:layout_gravity="end|bottom"
+                android:contentDescription="@string/create_recipe"
+                app:icon="@drawable/ic_create"
+                android:text="@string/create_recipe"
+                android:onClick="@{() -> recipesViewModel.onCreateRecipeClicked()}"
+                app:rippleColor="@color/onPrimary" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

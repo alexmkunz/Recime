@@ -1,4 +1,4 @@
-package com.unoknowbo.recime.recipes
+package com.unoknowbo.recime.ui.recipes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
