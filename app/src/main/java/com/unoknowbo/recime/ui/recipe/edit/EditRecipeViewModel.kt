@@ -1,6 +1,5 @@
 package com.unoknowbo.recime.ui.recipe.edit
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.unoknowbo.recime.database.ingredient.Ingredient
