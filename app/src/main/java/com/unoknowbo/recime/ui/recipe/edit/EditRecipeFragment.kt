@@ -10,13 +10,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.unoknowbo.recime.MyOnBackPressed
 import com.unoknowbo.recime.R
 import com.unoknowbo.recime.database.RecimeDatabase
 import com.unoknowbo.recime.databinding.FragmentEditRecipeBinding
 import com.unoknowbo.recime.ui.recipe.RecipeFragmentArgs
 import kotlinx.android.synthetic.main.fragment_edit_recipe.*
 
-class EditRecipeFragment : Fragment() {
+class EditRecipeFragment : Fragment(), MyOnBackPressed {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -121,6 +122,10 @@ class EditRecipeFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onBackPressed() {
+        getCancelAlertDialog()?.show()
     }
 
     private fun getCancelAlertDialog(): AlertDialog? {
