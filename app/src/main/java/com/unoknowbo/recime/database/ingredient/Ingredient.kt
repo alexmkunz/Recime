@@ -19,7 +19,5 @@ import com.unoknowbo.recime.database.recipe.Recipe
 data class Ingredient(
     var recipeId: Long,
     var description: String,
-    var quantity: String,
-    var unitOfMeasurement: String,
     var orderOfIngredient: Int
 )

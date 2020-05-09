@@ -21,8 +21,8 @@
     <string name="servings_colon">Servings:</string>
     <string name="calories">Calories</string>
     <string name="calories_colon">Calories:</string>
-    <string name="edit_recipe_ingredients_hint">Format: Quantity, Unit, Ingredient *Enter twice*</string>
-    <string name="edit_recipe_instructions_hint">Format: Instruction *Enter twice*</string>
+    <string name="edit_recipe_ingredients_hint">Place Each Ingredient on Its Own Line</string>
+    <string name="edit_recipe_instructions_hint">Place Each Instruction on Its Own Line</string>
     <string name="recipe_information_description_hint">Click the edit icon (pencil) in the top right corner to add a description and/or edit any other recipe detail.</string>
     <string name="tbd">TBD</string>
     <string name="cancel">Cancel</string>
@@ -32,13 +32,6 @@
     <string name="discard_changes_message">Are you sure you want to discard the changes to this recipe?</string>
     <string name="discard_recipe">Discard Recipe</string>
     <string name="discard_recipe_message">Are you sure you want to discard this recipe?</string>
-    <string name="invalid_input_period_space">Invalid Input.\u0020</string>
-    <string name="invalid_ingredients_input">Invalid Ingredients Input</string>
-    <string name="ingredients_input_example">The input format is \"Quantity, Unit of Measurement, Ingredient\" separated by a blank line. Example:\n\n2, slices, bread\n\n3, T, peanut butter\n\n4 1/2, T, jam</string>
-    <string name="invalid_instructions_input">Invalid Instructions Input</string>
-    <string name="instructions_input_example">Separate each instruction by a blank line. Example:\n\nSpread peanut butter on one slice of bread\n\nSpread jam on the other slice\n\nPress the slices together</string>
-    <string name="ok">Ok</string>
-    <string name="floating_action_button_prompt">Click on the create button to make a recipe:</string>
     <string name="create_recipe">Create Recipe</string>
     <string name="delete">Delete</string>
     <string name="delete_recipe">Delete Recipe</string>

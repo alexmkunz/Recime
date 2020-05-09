@@ -80,45 +80,18 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
 
         // Execute view model's save when save button is clicked
         binding.editRecipeSaveButton.setOnClickListener {
-            var canSave = true
-            // Ensure the ingredients input adheres to the required format
-            val ingredientsRegex = Regex("(([^,\n]*[,]){2}[^,\n]*([\n]+|$))*")
-            if (!edit_recipe_ingredients_edit_text.text.toString().matches(ingredientsRegex)) {
-                edit_recipe_ingredients_layout.error =
-                    resources.getString(R.string.invalid_input_period_space) +
-                            resources.getString(R.string.ingredients_input_example)
-                canSave = false
-                getInvalidIngredientsInputAlertDialog()?.show()
-            } else {
-                edit_recipe_ingredients_layout.isErrorEnabled = false
-            }
-
-            // Ensure the instructions input adheres to the required format
-            val instructionsRegex = Regex("(.*([\n]+|$))*")
-            if (!edit_recipe_instructions_edit_text.text.toString().matches(instructionsRegex)) {
-                edit_recipe_instructions_layout.error =
-                    resources.getString(R.string.invalid_input_period_space) +
-                            resources.getString(R.string.instructions_input_example)
-                canSave = false
-                getInvalidInstructionsInputAlertDialog()?.show()
-            } else {
-                edit_recipe_instructions_layout.isErrorEnabled = false
-            }
-
-            if (canSave) {
-                editRecipeViewModel.save(
-                    edit_recipe_name_edit_text.text.toString(),
-                    edit_recipe_prep_time_hours_edit_text.text.toString(),
-                    edit_recipe_prep_time_minutes_edit_text.text.toString(),
-                    edit_recipe_cook_time_hours_edit_text.text.toString(),
-                    edit_recipe_cook_time_minutes_edit_text.text.toString(),
-                    edit_recipe_servings_edit_text.text.toString(),
-                    edit_recipe_calories_edit_text.text.toString(),
-                    edit_recipe_description_edit_text.text.toString(),
-                    edit_recipe_ingredients_edit_text.text.toString(),
-                    edit_recipe_instructions_edit_text.text.toString()
-                )
-            }
+            editRecipeViewModel.save(
+                edit_recipe_name_edit_text.text.toString(),
+                edit_recipe_prep_time_hours_edit_text.text.toString(),
+                edit_recipe_prep_time_minutes_edit_text.text.toString(),
+                edit_recipe_cook_time_hours_edit_text.text.toString(),
+                edit_recipe_cook_time_minutes_edit_text.text.toString(),
+                edit_recipe_servings_edit_text.text.toString(),
+                edit_recipe_calories_edit_text.text.toString(),
+                edit_recipe_description_edit_text.text.toString(),
+                edit_recipe_ingredients_edit_text.text.toString(),
+                edit_recipe_instructions_edit_text.text.toString()
+            )
         }
 
         return binding.root
@@ -147,32 +120,6 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
                     else R.string.discard_changes_message
                 )
                 setIcon(R.drawable.ic_discard)
-            }
-            builder.create()
-        }
-    }
-
-    private fun getInvalidIngredientsInputAlertDialog(): AlertDialog? {
-        return activity?.let {
-            val builder = AlertDialog.Builder(it)
-            builder.apply {
-                setPositiveButton(R.string.ok, null)
-                setTitle(R.string.invalid_ingredients_input)
-                setMessage(R.string.ingredients_input_example)
-                setIcon(R.drawable.ic_ingredients_on_surface_high_emphasis)
-            }
-            builder.create()
-        }
-    }
-
-    private fun getInvalidInstructionsInputAlertDialog(): AlertDialog? {
-        return activity?.let {
-            val builder = AlertDialog.Builder(it)
-            builder.apply {
-                setPositiveButton(R.string.ok, null)
-                setTitle(R.string.invalid_instructions_input)
-                setMessage(R.string.instructions_input_example)
-                setIcon(R.drawable.ic_instructions_on_surface_high_emphasis)
             }
             builder.create()
         }

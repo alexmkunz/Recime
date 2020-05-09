@@ -118,19 +118,10 @@ class EditRecipeViewModel (
 
     private fun getIngredientsFromString(ingredientsString: String): List<Ingredient> {
         val ingredientEntries = ingredientsString
-            .split("\n").filterNot {s: String -> s == ""}
+            .split("\n").filterNot {s: String -> s == ""}.map { s: String -> s.trim() }
         val ingredients = mutableListOf<Ingredient>()
         for ((order, entry) in ingredientEntries.withIndex()) {
-            val ingredientEntryComponents = entry.split(",").map { s: String -> s.trim() }
-            ingredients.add(
-                Ingredient(
-                    recipeId,
-                    ingredientEntryComponents[2],
-                    ingredientEntryComponents[0],
-                    ingredientEntryComponents[1],
-                    order
-                )
-            )
+            ingredients.add(Ingredient(recipeId, entry, order))
         }
         return ingredients
     }
@@ -140,12 +131,7 @@ class EditRecipeViewModel (
             .split("\n").filterNot {s: String -> s == ""}.map { s: String -> s.trim() }
         val instructions = mutableListOf<Instruction>()
         for ((order, entry) in instructionEntries.withIndex()) {
-            instructions.add(
-                Instruction(
-                    recipeId,
-                    entry,
-                    order
-                )
+            instructions.add(Instruction(recipeId, entry, order)
             )
         }
         return instructions

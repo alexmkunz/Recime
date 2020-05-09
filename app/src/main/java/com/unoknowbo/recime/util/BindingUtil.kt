@@ -125,7 +125,7 @@ private fun getMinutesStringFromTime(minutes: Int): String {
 private fun formatIngredientsString(ingredients: List<Ingredient>): String {
     var ingredientsString = ""
     for (ingredient in ingredients) {
-        ingredientsString += "${ingredient.quantity}, ${ingredient.unitOfMeasurement}, ${ingredient.description}\n\n"
+        ingredientsString += "${ingredient.description}\n\n"
     }
     return ingredientsString
 }

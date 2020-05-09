@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -9,87 +8,23 @@
                 type="com.unoknowbo.recime.database.ingredient.Ingredient" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
             android:id="@+id/list_item_recipe_ingredient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_bottom_border">
 
         <TextView
-                android:id="@+id/list_item_recipe_ingredient_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/spacing_normal"
-                android:paddingTop="@dimen/spacing_normal"
-                android:paddingEnd="0dp"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:text="@{String.valueOf(ingredient.quantity)}"
-                android:textColor="@color/onBackground"
-                android:textSize="@dimen/font_normal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toBottomOf="@id/recipe_ingredient_bottom_barrier"
-                app:layout_constraintEnd_toStartOf="@id/recipe_ingredient_quantity_vertical_guideline"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="14 3/4" />
-
-        <TextView
-                android:id="@+id/list_item_recipe_ingredient_unit_of_measurement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/spacing_normal"
-                android:paddingTop="@dimen/spacing_normal"
-                android:paddingEnd="0dp"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:text="@{ingredient.unitOfMeasurement}"
-                android:textColor="@color/onBackground"
-                android:textSize="@dimen/font_normal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toBottomOf="@id/recipe_ingredient_bottom_barrier"
-                app:layout_constraintEnd_toStartOf="@id/recipe_ingredient_quantity_unit_of_measurement_vertical_guideline"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@id/recipe_ingredient_quantity_vertical_guideline"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="pounds" />
-
-        <TextView
                 android:id="@+id/list_item_recipe_ingredient_description"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/spacing_normal"
                 android:text="@{ingredient.description}"
                 android:textColor="@color/onBackground"
                 android:textSize="@dimen/font_normal"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toBottomOf="@id/recipe_ingredient_bottom_barrier"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@id/recipe_ingredient_quantity_unit_of_measurement_vertical_guideline"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Ingredient this is a test of a long ingredient" />
 
-        <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/recipe_ingredient_bottom_barrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="bottom"
-                app:constraint_referenced_ids="list_item_recipe_ingredient_quantity,list_item_recipe_ingredient_unit_of_measurement,list_item_recipe_ingredient_description" />
 
-        <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/recipe_ingredient_quantity_vertical_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="64dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/recipe_ingredient_quantity_unit_of_measurement_vertical_guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="136dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </layout>
