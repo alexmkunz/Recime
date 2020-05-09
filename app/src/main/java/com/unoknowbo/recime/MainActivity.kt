@@ -14,6 +14,7 @@ interface MyOnBackPressed {
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
 
         // Register the day/night listener and set the day/night mode to what was previously saved.
