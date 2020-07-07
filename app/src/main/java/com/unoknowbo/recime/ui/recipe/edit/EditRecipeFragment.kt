@@ -1,11 +1,14 @@
 package com.unoknowbo.recime.ui.recipe.edit
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -69,7 +72,7 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         // Navigate back to the recipe fragment on save
         editRecipeViewModel.navigateBackToRecipe.observe(viewLifecycleOwner, Observer {
             if (it == true) {
-                navControllerPopBackStack()
+                navigateBackToRecipe()
                 editRecipeViewModel.doneNavigating()
             }
         })
@@ -108,7 +111,7 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
             val builder = AlertDialog.Builder(it)
             builder.apply {
                 setPositiveButton(R.string.discard) { _, _ ->
-                    navControllerPopBackStack()
+                    navigateBackToRecipe()
                 }
                 setNegativeButton(R.string.cancel, null)
                 setTitle(
@@ -125,9 +128,25 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         }
     }
 
-    // Make this a function so it can be called within the alert dialog
-    private fun navControllerPopBackStack() {
+    // Navigate back to the recipe fragment and hide the keyboard if it is visible
+    private fun navigateBackToRecipe() {
         this.findNavController().popBackStack()
+        hideKeyboard(activity)
+    }
+
+    private fun hideKeyboard(activity: Activity?) {
+        activity?.let {
+            val inputMethodManager =
+                activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+            // Check if a view has focus
+            val currentFocusedView = activity.currentFocus
+            currentFocusedView?.let {
+                inputMethodManager.hideSoftInputFromWindow(
+                    currentFocusedView.windowToken, InputMethodManager.HIDE_NOT_ALWAYS
+                )
+            }
+        }
     }
 }
 
