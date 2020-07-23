@@ -69,13 +69,15 @@ class EditRecipeViewModel (
         uiScope.launch {
             withContext(Dispatchers.IO) {
                 val prepTimeEstimateInMinutes =
-                    (if (prepTimeHoursString == "") 0 else prepTimeHoursString.toInt() * 60) +
-                            (if (prepTimeMinutesString == "") 0 else prepTimeMinutesString.toInt())
+                    if (prepTimeHoursString == "" && prepTimeMinutesString == "") -1 else
+                        (if (prepTimeHoursString == "") 0 else prepTimeHoursString.toInt() * 60) +
+                                (if (prepTimeMinutesString == "") 0 else prepTimeMinutesString.toInt())
                 val cookTimeEstimateInMinutes =
-                    (if (cookTimeHoursString == "") 0 else cookTimeHoursString.toInt() * 60) +
-                            (if (cookTimeMinutesString == "") 0 else cookTimeMinutesString.toInt())
-                val servings = if (servingsString == "") 0 else servingsString.toInt()
-                val calories = if (caloriesString == "") 0 else caloriesString.toInt()
+                    if (cookTimeHoursString == "" && cookTimeMinutesString == "") -1 else
+                        (if (cookTimeHoursString == "") 0 else cookTimeHoursString.toInt() * 60) +
+                                (if (cookTimeMinutesString == "") 0 else cookTimeMinutesString.toInt())
+                val servings = if (servingsString == "") -1 else servingsString.toInt()
+                val calories = if (caloriesString == "") -1 else caloriesString.toInt()
 
                 if (recipeId == (-1).toLong()){
                     recipeId = recipeDao.insert(

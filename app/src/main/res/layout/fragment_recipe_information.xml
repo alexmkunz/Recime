@@ -15,9 +15,17 @@
             android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recipe_information_constraint_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/background">
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recipe_information_vertical_0dp_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="0dp" />
 
             <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/recipe_information_vertical_start_guideline"
@@ -41,7 +49,7 @@
                     android:paddingStart="@dimen/spacing_normal"
                     android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="@dimen/spacing_normal"
-                    android:paddingBottom="@dimen/spacing_x_large"
+                    android:paddingBottom="0dp"
                     android:text="@string/name_colon_underlined"
                     android:textColor="@color/primaryColor"
                     android:textSize="@dimen/font_normal"
@@ -56,7 +64,7 @@
                     android:paddingStart="0dp"
                     android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="0dp"
-                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
                     android:text="@{String.valueOf(recipe.name)}"
                     android:textColor="@color/onBackground"
                     android:textSize="@dimen/font_normal"
@@ -80,12 +88,13 @@
                     android:layout_height="wrap_content"
                     android:background="@color/background"
                     android:paddingStart="@dimen/spacing_normal"
-                    android:paddingTop="0dp"
+                    android:paddingTop="@dimen/spacing_x_large"
                     android:paddingEnd="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/specifics_colon_underlined"
                     android:textColor="@color/primaryColor"
                     android:textSize="@dimen/font_normal"
+                    app:formatSpecificsString="@{recipe}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/recipe_information_horizontal_name_barrier" />
 
@@ -95,55 +104,61 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_bar_chart"
+                    app:formatSpecificsIcon="@{recipe}"
                     app:layout_constraintBottom_toBottomOf="@id/recipe_information_specifics_string"
                     app:layout_constraintEnd_toEndOf="@id/recipe_information_vertical_end_guideline" />
 
             <TextView
-                    android:id="@+id/recipe_information_prep_time_string"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/background"
-                    android:padding="@dimen/spacing_normal"
-                    android:text="@string/prep_time_colon"
-                    android:textColor="@color/onBackgroundLowEmphasis"
-                    android:textSize="@dimen/font_normal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_information_specifics_string" />
-
-            <TextView
-                    android:id="@+id/recipe_information_cook_time_string"
+                    android:id="@+id/recipe_information_top_left_specific_string"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/background"
                     android:paddingStart="@dimen/spacing_normal"
-                    android:paddingTop="0dp"
+                    android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="@dimen/spacing_normal"
-                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
+                    android:text="@string/prep_time_colon"
+                    android:textColor="@color/onBackgroundLowEmphasis"
+                    android:textSize="@dimen/font_normal"
+                    app:formatTopLeftSpecificString="@{recipe}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_information_specifics_string" />
+
+            <TextView
+                    android:id="@+id/recipe_information_bottom_left_specific_string"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingTop="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
                     android:text="@string/cook_time_colon"
                     android:textColor="@color/onBackgroundLowEmphasis"
                     android:textSize="@dimen/font_normal"
+                    app:formatBottomLeftSpecificString="@{recipe}"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_information_prep_time_string" />
+                    app:layout_constraintTop_toBottomOf="@id/recipe_information_top_left_specific_string" />
 
             <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/recipe_information_vertical_time_barrier"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:barrierDirection="end"
-                    app:constraint_referenced_ids="recipe_information_prep_time_string,recipe_information_cook_time_string" />
+                    app:constraint_referenced_ids="recipe_information_top_left_specific_string,recipe_information_bottom_left_specific_string" />
 
             <TextView
-                    android:id="@+id/recipe_information_prep_time_value"
+                    android:id="@+id/recipe_information_top_left_specific_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="0dp"
                     android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="0dp"
-                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
                     android:textColor="@color/onBackground"
                     android:textSize="@dimen/font_normal"
                     android:hint="@string/tbd"
-                    app:formatPrepTime="@{recipe}"
+                    app:formatTopLeftSpecificValue="@{recipe}"
                     app:layout_constrainedWidth="true"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/recipe_information_vertical_time_barrier"
@@ -151,21 +166,21 @@
                     tools:text="30m" />
 
             <TextView
-                    android:id="@+id/recipe_information_cook_time_value"
+                    android:id="@+id/recipe_information_bottom_left_specific_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="0dp"
-                    android:paddingTop="0dp"
+                    android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="0dp"
-                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
                     android:textColor="@color/onBackground"
                     android:textSize="@dimen/font_normal"
                     android:hint="@string/tbd"
-                    app:formatCookTime="@{recipe}"
+                    app:formatBottomLeftSpecificValue="@{recipe}"
                     app:layout_constrainedWidth="true"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/recipe_information_vertical_time_barrier"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_information_prep_time_string"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_information_top_left_specific_string"
                     tools:text="99h 99m" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -176,51 +191,56 @@
                     app:layout_constraintGuide_percent=".5" />
 
             <TextView
-                    android:id="@+id/recipe_information_servings_string"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/background"
-                    android:padding="@dimen/spacing_normal"
-                    android:text="@string/servings_colon"
-                    android:textColor="@color/onBackgroundLowEmphasis"
-                    android:textSize="@dimen/font_normal"
-                    app:layout_constraintStart_toStartOf="@id/recipe_information_vertical_middle_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_information_specifics_string" />
-
-            <TextView
-                    android:id="@+id/recipe_information_calories_string"
+                    android:id="@+id/recipe_information_top_right_specific_string"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/background"
                     android:paddingStart="@dimen/spacing_normal"
-                    android:paddingTop="0dp"
+                    android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="@dimen/spacing_normal"
-                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
+                    android:text="@string/servings_colon"
+                    android:textColor="@color/onBackgroundLowEmphasis"
+                    android:textSize="@dimen/font_normal"
+                    app:formatTopRightSpecificString="@{recipe}"
+                    app:layout_constraintStart_toStartOf="@id/recipe_information_vertical_middle_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_information_specifics_string" />
+
+            <TextView
+                    android:id="@+id/recipe_information_bottom_right_specific_string"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/background"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingTop="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
                     android:text="@string/calories_colon"
                     android:textColor="@color/onBackgroundLowEmphasis"
                     android:textSize="@dimen/font_normal"
+                    app:formatBottomRightSpecificString="@{recipe}"
                     app:layout_constraintStart_toStartOf="@id/recipe_information_vertical_middle_guideline"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_information_prep_time_string" />
+                    app:layout_constraintTop_toBottomOf="@id/recipe_information_top_left_specific_string" />
 
             <androidx.constraintlayout.widget.Barrier
                     android:id="@+id/recipe_information_vertical_servings_and_calories_barrier"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:barrierDirection="end"
-                    app:constraint_referenced_ids="recipe_information_servings_string,recipe_information_calories_string" />
+                    app:constraint_referenced_ids="recipe_information_top_right_specific_string,recipe_information_bottom_right_specific_string" />
 
             <TextView
-                    android:id="@+id/recipe_information_servings_value"
+                    android:id="@+id/recipe_information_top_right_specific_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="0dp"
                     android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="0dp"
-                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
                     android:textColor="@color/onBackground"
                     android:textSize="@dimen/font_normal"
                     android:hint="@string/tbd"
-                    app:formatServings="@{recipe}"
+                    app:formatTopRightSpecificValue="@{recipe}"
                     app:layout_constrainedWidth="true"
                     app:layout_constraintEnd_toEndOf="@id/recipe_information_vertical_end_guideline"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -229,23 +249,30 @@
                     tools:text="5" />
 
             <TextView
-                    android:id="@+id/recipe_information_calories_value"
+                    android:id="@+id/recipe_information_bottom_right_specific_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="0dp"
-                    android:paddingTop="0dp"
+                    android:paddingTop="@dimen/spacing_normal"
                     android:paddingEnd="0dp"
-                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingBottom="0dp"
                     android:textColor="@color/onBackground"
                     android:textSize="@dimen/font_normal"
                     android:hint="@string/tbd"
-                    app:formatCalories="@{recipe}"
+                    app:formatBottomRightSpecificValue="@{recipe}"
                     app:layout_constrainedWidth="true"
                     app:layout_constraintEnd_toEndOf="@id/recipe_information_vertical_end_guideline"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/recipe_information_vertical_servings_and_calories_barrier"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_information_prep_time_string"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_information_top_left_specific_string"
                     tools:text="450" />
+
+            <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/recipe_information_horizontal_specifics_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="recipe_information_horizontal_name_barrier,recipe_information_top_left_specific_string,recipe_information_top_right_specific_string,recipe_information_bottom_left_specific_string,recipe_information_bottom_right_specific_string" />
 
             <TextView
                     android:id="@+id/recipe_information_description_string"
@@ -253,14 +280,14 @@
                     android:layout_height="wrap_content"
                     android:background="@color/background"
                     android:paddingStart="@dimen/spacing_normal"
-                    android:paddingTop="@dimen/spacing_normal"
+                    android:paddingTop="@dimen/spacing_x_large"
                     android:paddingEnd="0dp"
                     android:paddingBottom="0dp"
                     android:text="@string/description_colon_underlined"
                     android:textColor="@color/primaryColor"
                     android:textSize="@dimen/font_normal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recipe_information_cook_time_string" />
+                    app:layout_constraintTop_toBottomOf="@id/recipe_information_horizontal_specifics_barrier" />
 
             <ImageView
                     android:id="@+id/recipe_information_description_icon"

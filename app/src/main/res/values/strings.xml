@@ -36,4 +36,5 @@
     <string name="delete">Delete</string>
     <string name="delete_recipe">Delete Recipe</string>
     <string name="delete_recipe_message">Are you sure you want to delete this recipe?</string>
+    <string name="na">N/A</string>
 </resources>

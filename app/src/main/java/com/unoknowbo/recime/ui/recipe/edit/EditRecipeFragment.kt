@@ -9,10 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
 import com.unoknowbo.recime.MyOnBackPressed
 import com.unoknowbo.recime.R
 import com.unoknowbo.recime.database.RecimeDatabase
@@ -97,11 +100,164 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
             )
         }
 
+        // Add click listeners to each add/remove button.
+        binding.editRecipePrepTimeAddRemove.setOnClickListener {
+            addRemoveOnClickListener(
+                binding.editRecipePrepTimeAddRemove,
+                listOf(
+                    binding.editRecipePrepTimeHoursEditText,
+                    binding.editRecipePrepTimeMinutesEditText
+                ),
+                binding.editRecipeConstraintLayout,
+                activity
+            )
+        }
+        binding.editRecipeCookTimeAddRemove.setOnClickListener {
+            addRemoveOnClickListener(
+                binding.editRecipeCookTimeAddRemove,
+                listOf(
+                    binding.editRecipeCookTimeHoursEditText,
+                    binding.editRecipeCookTimeMinutesEditText
+                ),
+                binding.editRecipeConstraintLayout,
+                activity
+            )
+        }
+        binding.editRecipeServingsAddRemove.setOnClickListener {
+            addRemoveOnClickListener(
+                binding.editRecipeServingsAddRemove,
+                listOf(binding.editRecipeServingsEditText),
+                binding.editRecipeConstraintLayout,
+                activity
+            )
+        }
+        binding.editRecipeCaloriesAddRemove.setOnClickListener {
+            addRemoveOnClickListener(
+                binding.editRecipeCaloriesAddRemove,
+                listOf(binding.editRecipeCaloriesEditText),
+                binding.editRecipeConstraintLayout,
+                activity
+            )
+        }
+
+        // Add on focus change listeners to each specific (i.e. prep time, cook time, servings,
+        // calories).
+        binding.editRecipePrepTimeMinutesEditText.setOnFocusChangeListener { _, hasFocus ->
+            specificOnFocusChange(
+                binding.editRecipePrepTimeAddRemove,
+                listOf(
+                    binding.editRecipePrepTimeHoursEditText,
+                    binding.editRecipePrepTimeMinutesEditText
+                ),
+                hasFocus
+            )
+        }
+        binding.editRecipePrepTimeHoursEditText.setOnFocusChangeListener { _, hasFocus ->
+            specificOnFocusChange(
+                binding.editRecipePrepTimeAddRemove,
+                listOf(
+                    binding.editRecipePrepTimeHoursEditText,
+                    binding.editRecipePrepTimeMinutesEditText
+                ),
+                hasFocus
+            )
+        }
+        binding.editRecipeCookTimeMinutesEditText.setOnFocusChangeListener { _, hasFocus ->
+            specificOnFocusChange(
+                binding.editRecipeCookTimeAddRemove,
+                listOf(
+                    binding.editRecipeCookTimeHoursEditText,
+                    binding.editRecipeCookTimeMinutesEditText
+                ),
+                hasFocus
+            )
+        }
+        binding.editRecipeCookTimeHoursEditText.setOnFocusChangeListener { _, hasFocus ->
+            specificOnFocusChange(
+                binding.editRecipeCookTimeAddRemove,
+                listOf(
+                    binding.editRecipeCookTimeHoursEditText,
+                    binding.editRecipeCookTimeMinutesEditText
+                ),
+                hasFocus
+            )
+        }
+        binding.editRecipeServingsEditText.setOnFocusChangeListener { _, hasFocus ->
+            specificOnFocusChange(
+                binding.editRecipeServingsAddRemove,
+                listOf(binding.editRecipeServingsEditText),
+                hasFocus
+            )
+        }
+        binding.editRecipeCaloriesEditText.setOnFocusChangeListener { _, hasFocus ->
+            specificOnFocusChange(
+                binding.editRecipeCaloriesAddRemove,
+                listOf(binding.editRecipeCaloriesEditText),
+                hasFocus
+            )
+        }
+
         return binding.root
     }
 
     override fun onBackPressed() {
         getCancelAlertDialog()?.show()
+    }
+
+    private fun isAdd(imageView: ImageView): Boolean {
+        return imageView.tag == R.drawable.ic_add
+    }
+
+    // Handle pushing an add/remove button.
+    private fun addRemoveOnClickListener(
+        addRemoveImageView: ImageView,
+        listOfEditTexts: List<TextInputEditText>,
+        layout: ConstraintLayout,
+        activity: Activity?
+    ) {
+        if (isAdd(addRemoveImageView)) {
+            addRemoveImageView.setImageResource(R.drawable.ic_remove)
+            addRemoveImageView.tag = R.drawable.ic_remove
+            showKeyboard(activity, listOfEditTexts.first())
+
+        } else {
+            addRemoveImageView.setImageResource(R.drawable.ic_add)
+            addRemoveImageView.tag = R.drawable.ic_add
+            listOfEditTexts.map { it.setText("") }
+
+            // If the focus is on one of the TextViews that just got cleared by the user clicking
+            // the remove button, then hide the keyboard and clear the focus.
+            val currentFocusedView = activity?.currentFocus
+            currentFocusedView?.let {
+                for (editText in listOfEditTexts) {
+                    if (it == editText) {
+                        layout.requestFocus()
+                        hideKeyboard(activity)
+                        break
+                    }
+                }
+            }
+        }
+    }
+
+    // Handle the focus change of an EditText that is associated with an add/remove button.
+    private fun specificOnFocusChange(
+        addRemoveImageView: ImageView,
+        listOfEditTexts: List<TextInputEditText>,
+        hasFocus: Boolean
+
+    ) {
+        if (isAdd(addRemoveImageView) && hasFocus) {
+            addRemoveImageView.setImageResource(R.drawable.ic_remove)
+            addRemoveImageView.tag = R.drawable.ic_remove
+        } else if (
+            !isAdd(addRemoveImageView) &&
+            !hasFocus &&
+            listOfEditTexts.all { it.text.toString() == "" }
+        ) {
+            addRemoveImageView.setImageResource(R.drawable.ic_add)
+            addRemoveImageView.tag = R.drawable.ic_add
+        }
     }
 
     private fun getCancelAlertDialog(): AlertDialog? {
@@ -132,6 +288,16 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
     private fun navigateBackToRecipe() {
         this.findNavController().popBackStack()
         hideKeyboard(activity)
+    }
+
+    private fun showKeyboard(activity: Activity?, editText: TextInputEditText) {
+        activity?.let {
+            val inputMethodManager =
+                activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+            editText.requestFocus()
+            inputMethodManager.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
+        }
     }
 
     private fun hideKeyboard(activity: Activity?) {
