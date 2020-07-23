@@ -113,8 +113,8 @@ class EditRecipeViewModel (
                     instructionDao.insert(instruction)
                 }
             }
+            _navigateBackToRecipe.value = true
         }
-        _navigateBackToRecipe.value = true
     }
 
     private fun getIngredientsFromString(ingredientsString: String): List<Ingredient> {

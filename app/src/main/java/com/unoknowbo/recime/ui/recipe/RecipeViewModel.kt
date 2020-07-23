@@ -42,7 +42,7 @@ class RecipeViewModel (val database: RecipeDao, val recipeId: Long) : ViewModel(
             withContext(Dispatchers.IO) {
                 database.deleteRecipe(recipeId)
             }
+            _navigateBackToRecipes.value = true
         }
-        _navigateBackToRecipes.value = true
     }
 }
