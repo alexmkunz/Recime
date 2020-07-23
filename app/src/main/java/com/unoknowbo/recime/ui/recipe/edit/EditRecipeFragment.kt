@@ -21,7 +21,6 @@ import com.unoknowbo.recime.R
 import com.unoknowbo.recime.database.RecimeDatabase
 import com.unoknowbo.recime.databinding.FragmentEditRecipeBinding
 import com.unoknowbo.recime.ui.recipe.RecipeFragmentArgs
-import kotlinx.android.synthetic.main.fragment_edit_recipe.*
 
 class EditRecipeFragment : Fragment(), MyOnBackPressed {
 
@@ -87,16 +86,16 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         // Execute view model's save when save button is clicked
         binding.editRecipeSaveButton.setOnClickListener {
             editRecipeViewModel.save(
-                edit_recipe_name_edit_text.text.toString(),
-                edit_recipe_prep_time_hours_edit_text.text.toString(),
-                edit_recipe_prep_time_minutes_edit_text.text.toString(),
-                edit_recipe_cook_time_hours_edit_text.text.toString(),
-                edit_recipe_cook_time_minutes_edit_text.text.toString(),
-                edit_recipe_servings_edit_text.text.toString(),
-                edit_recipe_calories_edit_text.text.toString(),
-                edit_recipe_description_edit_text.text.toString(),
-                edit_recipe_ingredients_edit_text.text.toString(),
-                edit_recipe_instructions_edit_text.text.toString()
+                binding.editRecipeNameEditText.text.toString(),
+                binding.editRecipePrepTimeHoursEditText.text.toString(),
+                binding.editRecipePrepTimeMinutesEditText.text.toString(),
+                binding.editRecipeCookTimeHoursEditText.text.toString(),
+                binding.editRecipeCookTimeMinutesEditText.text.toString(),
+                binding.editRecipeServingsEditText.text.toString(),
+                binding.editRecipeCaloriesEditText.text.toString(),
+                binding.editRecipeDescriptionEditText.text.toString(),
+                binding.editRecipeIngredientsEditText.text.toString(),
+                binding.editRecipeInstructionsEditText.text.toString()
             )
         }
 
