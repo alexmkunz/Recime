@@ -41,14 +41,14 @@ class EditRecipeViewModel (
     /** Navigation handling after save or cancel */
 
     // The ID to the recipe that we are navigating to
-    private val _navigateBackToRecipe = MutableLiveData<Boolean>()
-    val navigateBackToRecipe
-        get() = _navigateBackToRecipe
+    private val _navigateBackToRecipeAfterSave = MutableLiveData<Boolean>()
+    val navigateBackToRecipeAfterSave
+        get() = _navigateBackToRecipeAfterSave
 
 
     // Signify that navigation is complete
     fun doneNavigating() {
-        _navigateBackToRecipe.value = null
+        _navigateBackToRecipeAfterSave.value = null
     }
 
 
@@ -113,7 +113,7 @@ class EditRecipeViewModel (
                     instructionDao.insert(instruction)
                 }
             }
-            _navigateBackToRecipe.value = true
+            _navigateBackToRecipeAfterSave.value = true
         }
     }
 

@@ -37,5 +37,9 @@
         <argument
                 android:name="recipeId"
                 app:argType="long" />
+        <action
+                android:id="@+id/action_editRecipeFragment_to_recipeFragment"
+                app:destination="@id/recipeFragment"
+                app:popUpTo="@+id/recipesFragment" />
     </fragment>
 </navigation>

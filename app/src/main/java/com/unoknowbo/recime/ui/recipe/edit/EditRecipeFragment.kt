@@ -24,12 +24,13 @@ import com.unoknowbo.recime.ui.recipe.RecipeFragmentArgs
 
 class EditRecipeFragment : Fragment(), MyOnBackPressed {
 
+    var recipeId: Long = -1L
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val args = RecipeFragmentArgs.fromBundle(arguments!!)
-        val recipeId = args.recipeId
+        recipeId = RecipeFragmentArgs.fromBundle(arguments!!).recipeId
 
         // Get a reference to the binding object and inflate the fragment views
         val binding: FragmentEditRecipeBinding = DataBindingUtil.inflate(
@@ -72,15 +73,15 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         })
 
         // Navigate back to the recipe fragment on save
-        editRecipeViewModel.navigateBackToRecipe.observe(viewLifecycleOwner, Observer {
+        editRecipeViewModel.navigateBackToRecipeAfterSave.observe(viewLifecycleOwner, Observer {
             if (it == true) {
-                navigateBackToRecipe()
+                navigateBack(editRecipeViewModel.recipeId)
                 editRecipeViewModel.doneNavigating()
             }
         })
 
         binding.editRecipeCancelButton.setOnClickListener {
-            getCancelAlertDialog()?.show()
+            getCancelAlertDialog(recipeId)?.show()
         }
 
         // Execute view model's save when save button is clicked
@@ -200,7 +201,7 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
     }
 
     override fun onBackPressed() {
-        getCancelAlertDialog()?.show()
+        getCancelAlertDialog(recipeId)?.show()
     }
 
     private fun isAdd(imageView: ImageView): Boolean {
@@ -259,14 +260,12 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         }
     }
 
-    private fun getCancelAlertDialog(): AlertDialog? {
-        val args = RecipeFragmentArgs.fromBundle(arguments!!)
-        val recipeId = args.recipeId
+    private fun getCancelAlertDialog(recipeId: Long): AlertDialog? {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.apply {
                 setPositiveButton(R.string.discard) { _, _ ->
-                    navigateBackToRecipe()
+                    navigateBack(recipeId)
                 }
                 setNegativeButton(R.string.cancel, null)
                 setTitle(
@@ -283,9 +282,16 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         }
     }
 
-    // Navigate back to the recipe fragment and hide the keyboard if it is visible
-    private fun navigateBackToRecipe() {
-        this.findNavController().popBackStack()
+    // Navigate back to RecipeFragment if a recipe was created or one was updated; navigate back to
+    // RecipesFragment if a recipe under creation is discarded. Hide the keyboard if it is visible.
+    private fun navigateBack(recipeId: Long) {
+        val navController = this.findNavController()
+        if (recipeId == (-1).toLong()) {
+            navController.popBackStack()
+        } else {
+            navController.navigate(EditRecipeFragmentDirections
+                .actionEditRecipeFragmentToRecipeFragment(recipeId))
+        }
         hideKeyboard(activity)
     }
 
