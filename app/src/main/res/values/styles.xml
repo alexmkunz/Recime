@@ -20,6 +20,8 @@
     <style name="AppTheme.DayNightActionBar" parent="AppTheme">
         <item name="android:background">@color/actionBar</item>
         <item name="android:textColorPrimary">#ffffff</item>
+        <!-- The color of the up button. -->
+        <item name="colorControlNormal">#ffffff</item>
     </style>
 
     <!-- Fade animation for activities. These animations are used when day/night mode changes. -->

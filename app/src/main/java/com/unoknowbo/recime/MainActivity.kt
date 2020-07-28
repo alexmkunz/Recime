@@ -3,6 +3,8 @@ package com.unoknowbo.recime
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.unoknowbo.recime.ui.recipe.edit.EditRecipeFragment
 import com.unoknowbo.recime.util.dayNightPrefListener
 import com.unoknowbo.recime.util.setDayNightMode
@@ -23,16 +25,35 @@ class MainActivity : AppCompatActivity() {
         setDayNightMode(sharedPrefs)
 
         setContentView(R.layout.activity_main)
+
+        val navController = this.findNavController(R.id.nav_host_fragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.nav_host_fragment)
+        return if (!calledMyOnBackPressed()) {
+            navController.navigateUp()
+        } else {
+            true
+        }
     }
 
     override fun onBackPressed() {
+        if (!calledMyOnBackPressed()) {
+            super.onBackPressed()
+        }
+    }
+
+    private fun calledMyOnBackPressed(): Boolean {
         val navHostFragment = this.supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         val fragments = navHostFragment?.childFragmentManager?.fragments
         for (f in fragments ?: listOf()) {
             if (f is EditRecipeFragment) {
-                return (f as MyOnBackPressed).onBackPressed()
+                (f as MyOnBackPressed).onBackPressed()
+                return true
             }
         }
-        super.onBackPressed()
+        return false
     }
 }
