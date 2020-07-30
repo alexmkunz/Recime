@@ -32,7 +32,7 @@
     </fragment>
     <fragment
             android:id="@+id/editRecipeFragment"
-            android:name="com.unoknowbo.recime.ui.recipe.edit.EditRecipeFragment"
+            android:name="com.unoknowbo.recime.ui.edit.EditRecipeFragment"
             android:label="Recime">
         <argument
                 android:name="recipeId"

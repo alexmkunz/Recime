@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.unoknowbo.recime.ui.recipe.edit.EditRecipeFragment
+import com.unoknowbo.recime.ui.edit.EditRecipeFragment
 import com.unoknowbo.recime.util.dayNightPrefListener
 import com.unoknowbo.recime.util.setDayNightMode
 

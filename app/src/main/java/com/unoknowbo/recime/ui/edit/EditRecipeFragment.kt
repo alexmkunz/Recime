@@ -1,4 +1,4 @@
-package com.unoknowbo.recime.ui.recipe.edit
+package com.unoknowbo.recime.ui.edit
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -44,12 +44,13 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         val recipeDao = RecimeDatabase.getInstance(application).recipeDao
         val ingredientDao = RecimeDatabase.getInstance(application).ingredientDao
         val instructionDao = RecimeDatabase.getInstance(application).instructionDao
-        val viewModelFactory = EditRecipeViewModelFactory(
-            recipeDao,
-            ingredientDao,
-            instructionDao,
-            recipeId
-        )
+        val viewModelFactory =
+            EditRecipeViewModelFactory(
+                recipeDao,
+                ingredientDao,
+                instructionDao,
+                recipeId
+            )
         val editRecipeViewModel =
             ViewModelProviders.of(this, viewModelFactory).get(
                 EditRecipeViewModel::class.java
@@ -289,8 +290,11 @@ class EditRecipeFragment : Fragment(), MyOnBackPressed {
         if (recipeId == (-1).toLong()) {
             navController.popBackStack()
         } else {
-            navController.navigate(EditRecipeFragmentDirections
-                .actionEditRecipeFragmentToRecipeFragment(recipeId))
+            navController.navigate(
+                EditRecipeFragmentDirections.actionEditRecipeFragmentToRecipeFragment(
+                    recipeId
+                )
+            )
         }
         hideKeyboard(activity)
     }

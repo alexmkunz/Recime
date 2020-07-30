@@ -1,4 +1,4 @@
-package com.unoknowbo.recime.ui.recipe.edit
+package com.unoknowbo.recime.ui.edit
 /**
  * Based on the implementation provided in Udacity's "Developing Android Apps with Kotlin"
  */
@@ -19,7 +19,12 @@ class EditRecipeViewModelFactory(private val recipeDao: RecipeDao,
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(EditRecipeViewModel::class.java)) {
-            return EditRecipeViewModel(recipeDao, ingredientDao, instructionDao, recipeId) as T
+            return EditRecipeViewModel(
+                recipeDao,
+                ingredientDao,
+                instructionDao,
+                recipeId
+            ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

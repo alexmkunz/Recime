@@ -1,4 +1,4 @@
-package com.unoknowbo.recime.ui.recipe.edit
+package com.unoknowbo.recime.ui.edit
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
