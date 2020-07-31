@@ -9,7 +9,7 @@
     <fragment
             android:id="@+id/recipesFragment"
             android:name="com.unoknowbo.recime.ui.recipes.RecipesFragment"
-            android:label="Recime"
+            android:label="@string/app_name"
             tools:layout="@layout/fragment_recipes">
         <action
                 android:id="@+id/action_recipesFragment_to_recipeFragment"
@@ -21,7 +21,7 @@
     <fragment
             android:id="@+id/recipeFragment"
             android:name="com.unoknowbo.recime.ui.recipe.RecipeFragment"
-            android:label="Recime"
+            android:label="@string/app_name"
             tools:layout="@layout/fragment_recipe" >
         <argument
                 android:name="recipeId"
@@ -33,7 +33,7 @@
     <fragment
             android:id="@+id/editRecipeFragment"
             android:name="com.unoknowbo.recime.ui.edit.EditRecipeFragment"
-            android:label="Recime">
+            android:label="@string/app_name">
         <argument
                 android:name="recipeId"
                 app:argType="long" />
