@@ -40,7 +40,7 @@ class EditRecipeViewModel (
 
     /** Navigation handling after save or cancel */
 
-    // The ID to the recipe that we are navigating to
+    // Variable to signify that saving is done and we should navigate out of EditRecipeFragment
     private val _navigateBackToRecipeAfterSave = MutableLiveData<Boolean>()
     val navigateBackToRecipeAfterSave
         get() = _navigateBackToRecipeAfterSave
