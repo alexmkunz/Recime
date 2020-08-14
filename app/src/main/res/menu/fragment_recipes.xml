@@ -2,7 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-            android:id="@+id/day_night_mode_toggle"
+            android:id="@+id/fragment_recipes_menu_search"
+            android:title="Search"
+            android:icon="@drawable/ic_search"
+            app:showAsAction="always"
+            app:actionViewClass="android.widget.SearchView"/>
+
+    <item
+            android:id="@+id/fragment_recipes_menu_day_night_mode_toggle"
             android:title="Toggle Day/Night"
             android:icon="@drawable/ic_day_night"
             app:showAsAction="always"/>

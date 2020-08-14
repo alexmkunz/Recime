@@ -9,6 +9,9 @@
   <color name="onPrimary">#ffffff</color>
   <color name="onSecondary">#ffffff</color>
   <color name="actionBar">#3f51b5</color>
+  <color name="searchSuggestion">#f2f2f2</color>
+  <color name="searchSuggestionTitle">#000000</color>
+  <color name="searchSuggestionSubTitle">#666666</color>
   <color name="background">#f2f2f2</color>
   <color name="onBackground">#000000</color>
   <color name="onBackgroundLowEmphasis">#666666</color>

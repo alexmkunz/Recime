@@ -28,6 +28,7 @@ abstract class RecimeDatabase : RoomDatabase() {
     abstract val recipeDao: RecipeDao
     abstract val ingredientDao: IngredientDao
     abstract val instructionDao: InstructionDao
+    abstract val searchDao: SearchDao
 
     companion object {
         /**
