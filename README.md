@@ -1,9 +1,9 @@
 # Recime
-A simple Android app designed to create and store recipes. It is written in Kotlin and currently in progress.
+An Android app designed to create and store recipes. It is written in Kotlin.
 
-## The Landing Page
+## Screenshots
 
-<img src="screenshots/recimeLandingPageDay.png" alt="drawing" width="49%"/> <img src="screenshots/recimeLandingPageNight.png" alt="drawing" width="49%"/>
+![Recime Screenshots](screenshots/allPages.png)
 
 ## Architecture
 This app takes an approach similiar to the Model-View-Viewmodel architectural pattern to facilitate seperation of concerns. The main components are the **UI**, the **Viewmodel**, and the **database abstraction layer**.
@@ -25,16 +25,16 @@ The following example demonstrates how these entities work together: the recipe 
 Recime's database consists of three tables: recipes, ingredients, and instructions.
 
 ### Recipes:
-|id: Long|name: String|timeEstimateInMinutes: Int|notes: String|
-|:---:|:---:|:---:|:---:|
+|id: Long|name: String|description: String|cookTimeEstimateInMinutes: Int|prepTimeEstimateInMinutes: Int|servings: Int|calories: Int|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |...|...|...|...|
 
 ###### Primary Key = id
 
 ### Ingredients:
-|recipeId: Long|description: String|quantity: Int|unitOfMeasurement: String|
-|:---:|:---:|:---:|:---:|
-|...|...|...|...|
+|recipeId: Long|description: String|orderOfIngredient: Int|
+|:---:|:---:|:---:|
+|...|...|...|
 
 ###### Primary Key = recipeId, description
 ###### Foreign Key = recipeId --> id
@@ -46,10 +46,6 @@ Recime's database consists of three tables: recipes, ingredients, and instructio
 
 ###### Primary Key = recipeId, orderOfInstruction
 ###### Foreign Key = recipeId --> id
-
-## TODO
-* Display ingredients, instructions, time, and notes
-* User edit/creation
 
 ## References
 My app architecture and room database implementation were inspired by Udacity's [Developing Android Apps with Kotlin course](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012).
